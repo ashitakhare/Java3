@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Start JAVA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Access Modifiers</h1>
+                        <hr class="small">
+                        <span class="subheading">- by Ashita K.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" style='color: #107896;'>
+                        <h2 class="post-title" >
+                            Access Modifiers in Java
+                        </h2>
+                        <h3 class="post-subtitle">
+                            Access level modifiers determine whether other classes can use a particular field or invoke a particular method.<br>
+							
+                        </h3></a>
+						<p class="post-meta"><strong>There are four types of access modifiers available in java:</strong>
+							<ol>
+							
+							<li>Public</li>
+							<li>Default</li>
+							<li>Protected</li>
+							<li>Private</li>
+							
+							</ol></p>
+                    
+                </div>
+                <hr>
+                <div class="post-preview">
+                    <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" style='color: #107896;'>
+                        <h2 class="post-title">
+                           Public  Modifier
+                        </h2>
+						<h3 class="post-subtitle">The Public access modifier is specified using the keyword <code>public</code> .</h3></a>
+                    
+                    <p class="post-meta">- The <code>public</code>  access modifier has the widest scope among all other access modifiers.<br>- Classes, methods or data members which are declared as <code>public</code>  are accessible from every where in the program. There is no restriction on the scope of a <code>public</code>  data members.</p>
+					<pre  style="font-family: verdana;">//Java program to illustrate
+//public modifier
+package p1;
+<code>public</code>  class A
+{
+   <code>public</code>  void display()
+      {
+          System.out.println("GeeksforGeeks");
+      }
+}
+package p2;
+import p1.*;
+class B
+{
+    <code>public</code>  static void main(String args[])
+      {
+          A obj = new A;
+          obj.display();
+      }
+}</pre>
+
+<pre style="font-family: verdana;"><b>Output:</b> 
+GeeksforGeeks</pre>
+                </div>	<!--End of public -->
+				
+				
+                <hr>
+                <div class="post-preview">
+                    <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" style='color: #107896;'>
+                        <h2 class="post-title">
+                            Default
+                        </h2>
+                        <h3 class="post-subtitle">
+                            If you don't use any modifier, it is treated as default bydefault. The default modifier is accessible only within package.
+
+                        </h3></a>
+                    
+                    <p class="post-meta">Default access is simple-it
+means that only code within the samepackage can access code with default access.<br> So a
+default class, for example (which means a class that isn't explicitly declared as puhlil:) can
+be accessed by only classes within the same package as the default class.<br><br>
+Here, default class with public methods means the public
+methods aren't really public at all. You can't access a method if you can't see the class.<br><br>
+OK, that's default. It's simple-ifsomething has default access (which, remember, means
+no explicit access rnodifierl), only code within the same package as the default thing
+(class, variable, method, inner class) can access that thing</p>
+
+
+<pre  style="font-family: verdana;"><i>//In this example, we will create two packages and the classes in the packages will be having the default access modifiers and we will try to access a class from one package from a class of second package.
+//Java program to illustrate default modifier</i>
+
+<strong>package p1;</strong>
+ 
+<i>//Class Geeks is having Default access modifier</i>
+
+class Geek
+{
+    void display()
+       {
+           System.out.println("Hello World!");
+       }
+}
+
+
+<i>//Java program to illustrate error while 
+//using class from different package with
+//default modifier</i>
+
+<strong>package p2;
+import p1.*;</strong>
+ 
+//This class is having default access modifier
+class GeekNew
+{
+    public static void main(String args[])
+       {  
+          //accessing class Geek from package p1
+          Geeks obj = new Geek();
+ 
+          obj.display();
+       }
+}
+</pre>
+
+<pre style="font-family: verdana;"><b>Output:</b> 
+Compile time error</pre>
+                </div><!-- End of Default -->
+				
+				
+				
+				
+                <hr>
+                <div class="post-preview">
+                    <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" style='color: #107896;'>
+                        <h2 class="post-title">
+                           Protected Modifier
+                        </h2>
+                        <h3 class="post-subtitle">
+                            The protected access modifier is specified using the keyword <code>protected</code>.<br>Protected access is almost identical to default access, with one exception: it allows subclasses
+to inherit the protected thing, even if those subclasses are outside the package of the superclass they extend.
+                        </h3>
+                    </a>
+                    <p class="post-meta">One ofthe interesting things
+about protected is that-unlike the other access levels-protected access applies only to
+inheritance<br>If a subclass-outside-the-package has a nference to an instance of the superc1ass
+(the superclass that has, say, a protected method), the subclass can 't access the protected
+method using that superclass referencel The only way the subclass can access that
+method is by inheriting it.</p>
+
+
+<pre  style="font-family: verdana;"><i>/*In this example, we will create two packages p1 and p2. Class A in p1 is made public, to access it in p2. <br>The method display in class A is protected and class B is inherited from class A and this protected method is then accessed by creating an object of class B.*/
+<br>
+//Java program to illustrate
+//protected modifier
+</i>
+
+<strong>package p1;</strong>
+ 
+<i>//Class A</i>
+
+public class A
+{
+   protected void display()
+    {
+        System.out.println("GeeksforGeeks");
+    }
+}
+
+<i>//Java program to illustrate
+//protected modifier</i>
+
+<strong>package p2;
+import p1.*;</strong>
+ 
+/* Class B is subclass of A */
+
+class B extends A // B inherits A
+{
+   public static void main(String args[])
+   {  
+       B obj = new B();  
+       obj.display();  
+   }  
+     
+}
+</pre>
+
+<pre style="font-family: verdana;"><b>Output:</b> 
+GeeksforGeeks</pre>
+                </div>
+                <hr>
+				<!-- End of Protected -->
+				
+				<div class="post-preview">
+                    <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" style='color: #107896;'>
+                        <h2 class="post-title">
+                            Private Modifier
+                        </h2>
+                        <h3 class="post-subtitle">
+                            The private access modifier is specified using the keyword <code>private</code>.
+                        </h3>
+                    </a>
+                    <p class="post-meta">The methods or data members declared as private are accessible only within the class in which they are declared.<br><br>Any other class of same package will not be able to access these members.<br><br>Classes or interface can not be declared as private.</p>
+					
+<pre  style="font-family: verdana;"><i>/*In this example, we will create two classes A and B within same package p1.<br> We will declare a method in class A as private and try to access this method from class B and see the result..*/
+<br>
+//Java program to illustrate
+//protected modifier
+</i>
+
+<strong>package p1;</strong>
+ 
+class A
+{
+   private void display()
+    {
+        System.out.println("GeeksforGeeks");
+    }
+}
+ 
+class B
+{
+   public static void main(String args[])
+      {
+          A obj = new A();
+          //trying to access private method of another class
+          obj.display();
+      }
+}
+</pre>
+
+<pre style="font-family: verdana;"><b>Output:</b> 
+error: display() has private access in A
+		obj.display();</pre>
+                </div>
+                <hr>
+				
+            </div>
+        </div>
+		<div align="center">
+		<p class="post-meta">Summarized Diagram</p>
+		<img src="img/p2.PNG">
+		</div><br>
+		
+		
+		<p class="post-meta">Refer the Table Below to know the visibility rules across Package</p>
+		<div align="center">
+		<img src="img/p1.PNG"></div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Ashita Khare 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
