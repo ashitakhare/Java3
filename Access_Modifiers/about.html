@@ -9,10 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - About</title>
+    <title>ULearn - Scope & Lifetime</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Theme CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
@@ -42,23 +45,26 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.html">ULearn- Java</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.html">Access Modifiers</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.html">Scope and Lifetime</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
+                        <a href="post.html">Relationships</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.html">Inheritance</a>
+                    </li>
+					<li>
+                        <a href="problems.html">Problems</a>
                     </li>
                 </ul>
             </div>
@@ -69,14 +75,14 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/about-bg.jpg')">
+    <header class="intro-header" style="background-image: url('img/snl-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="page-heading">
-                        <h1>About Me</h1>
+                        <h1>Scope and Lifetime</h1>
                         <hr class="small">
-                        <span class="subheading">This is what I do.</span>
+                        <span class="subheading">__Defining Visibility of the Variables__</span>
                     </div>
                 </div>
             </div>
@@ -85,11 +91,124 @@
 
     <!-- Main Content -->
     <div class="container">
+	
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.</p>
+			<p class="lead">The scope of a variable defines the section of the code in which the variable is visible.here are there types of variables: instance variables, formal parameters or local variables and local variables.  <br>
+			In a class definition, there are three kinds of variables.
+ </p>  
+
+ <div class="panel panel-info">  
+ <div class="panel-heading"><h3>Instance variables </h3></div>  
+ <div class="panel-body">Any method in the class can access these variables and not in any method or constructor of the class. Must be declared inside class (outside any function) <br>
+<pre style="white-space: pre-wrap; overflow-x: auto;font-family: verdana;">
+public class TwoSides
+{
+   int side1, side2 ; // Instance Variables
+   public boolean testRightTriangle( )
+   {
+      // Method Body
+   }
+}
+</pre> 
+ <p><code>side1</code>, <code>side2</code> are instance variables. Any method in <code>TwoSides</code> class can access these variables directly.</p>
+ </div>  
+ </div>  
+  
+ <div class="panel panel-success">  
+ <div class="panel-heading"><h3>Parameter variables</h3></div>  
+ <div class="panel-body">Only the method where the parameter appears can access these variables. This is how information is passed to the object.  
+<pre style="font-family: verdana;">
+public class TwoSides
+{
+   int side1, side2 ; // Instance Variables
+   public boolean testRightTriangle( int hypoteneuse  ) // hypoteneuse is parameter variable
+   {
+      // Method Body
+   }
+}
+</pre>
+<p><code>hypoteneuse</code> is a parameter variable for <code>testRightTriangle</code> and can only be accessed in the method body, <code>testRightTriangle</code>.<br>
+The scope for a parameter is simply the method body in which the parameter is located.</p>
+ </div>  
+ </div>  
+ 
+ <div class="panel panel-warning">  
+ <div class="panel-heading"><h3>Local variables</h3></div>  
+ <div class="panel-body">Variables declared inside a method have method level scope and can’t be accessed outside the method.  
+ <pre style="font-family: verdana;">
+public class TwoSides
+{
+   int side1, side2 ;
+   public boolean testRightTriangle( int hypoteneuse )
+   {
+      int side1Squared = side1 * side1 ; // side1Squared is Local Variable
+      int side2Squared = side2 * side2 ; // side2Squared is Local Variable
+      int hypSquared = hypoteneuse * hypoteneuse ;
+
+      return side1Squared + side2Squared == hypSquared ;
+   }
+}
+</pre >
+<p><code>side1Squared</code>, <code>side2Squared</code>, and <code>hypSquared</code> are local variables in <code>testRightTriangle</code>. They are only valid in <code>testRightTriangle</code>.</p>
+ </div>  
+ </div>
+<blockquote>When you exit a method, both the local variables and the parameter variables disappear (although, if you pass an object as a parameter, you usually have access to the object when you exit the method).
+That means if you make a call to testRightTriangle() and run the declarations, it creates new boxes and initializes them. When you exit, those local variables disappears.
+
+When you call it a second time, it recreates the local variables, and reinitializes them.
+
+Parameters behave somewhat like this. These variables gets initalized to the arguments.
+
+Only instance variables maintain their value over method calls. That is, if some instance variable has value of 4 for height, and you change it to 10, then the next time you make a method call, it's still 10. It stays 10 until some method call changes the value.</blockquote> 
+ <h2>Lifetime</h2>
+ <p>Different kinds of variables have different lifetimes
+ <ol>
+	<li>Parameter variables exist when the method call is made, and lasts until the method call is complete.These parameter variables hold boxes to values . If the box holds values (i.e., the parameter variable is an object variable), then, when the box disappears, the values may still stay around. That's usually because you have some variable around that holds the values, and was passed to the method as an argument.</li>
+	<li>Local variables also have a similar lifetime. The boxes are created when the declaration appears, and lasts until you exit the method.</li>
+	<li>Instance variables have a much longer lifetime. They are created when the object is constructed, and goes away when the object disappears. The object disappears when it is no longer being used, which basically means that no variable has a handle to the object. When that happens, the garbage collector gets rid of the object.</li>
+ </ol>
+ The <Strong>garbage collector </Strong>is a program that runs when your program runs, and looks for objects with no variables that have values to it.
+ </p>
+ <div style="border-style: solid;">
+ <table class="table">
+ 
+    <thead>
+      <tr >
+        <h3><th>Scope</th></h3>
+        <h3><th>Lifetime</th></h3>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="warning">
+        <td>Scope refers to the range of code where you can access a variable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</td>
+        <td>Lifetime refers to the amount of time a variable (or object) exists. </td>
+        
+      </tr>      
+      <tr class="warning">
+        <td>You can literally print out your program, and draw a box to show where a variable is valid. It's textual in nature.</td>
+        <td>Since object variables are both a box (holding a handle) and an object, the lifetimes may differ. An object variable could disappear (for example, a local variable disappears once you exit the method where the local variable is declared), yet the object still exists.</td>
+   
+      </tr>
+      <tr class="warning">
+        <td>We can divide scope into:
+		<ul>
+			<li><b>Method body scope</b> Variable is accessible in method body only (local variables, parameters)</li>
+			<li><b>class definition scope</b> Variable is accessible i class definition (instance variables)</li>
+		</ul>
+		
+		</td>
+        <td>We can divide lifetime into:
+		
+		<ul>
+			<li><b>Method body lifetime</b>  Exists on method body entry, disappears on method body exit. (local variables, parameters)</li>
+			<li><b>Class definition lifetime </b> Exists as long as object is around (instance variables)</li>
+		</ul>
+		</td>
+       
+      </tr>
+    </tbody></table>
             </div>
         </div>
     </div>
@@ -127,7 +246,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; Ashita Khare 2017</p>
                 </div>
             </div>
         </div>
